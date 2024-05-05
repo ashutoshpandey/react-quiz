@@ -1,15 +1,25 @@
 {
     "questions": [
         {
-            "question": "",
-            "options": [],
+            "question": "What is React?",
+            "options": [
+                "Frontend Library",
+                "Frontend Framework",
+                "Backend Framework",
+                "Mobile Development Framework"
+            ],
             "correctOption": 1,
             "points": 10
         },
         {
-            "question": "",
-            "options": [],
-            "correctOption": 1,
+            "question": "What is a hook?",
+            "options": [
+                "A support library",
+                "A data store",
+                "React functions provided for functional components",
+                "React functions provided for class components"
+            ],
+            "correctOption": 3,
             "points": 10
         },
         {
