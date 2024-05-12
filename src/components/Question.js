@@ -12,7 +12,6 @@ function Question({ question, dispatch, answer, index, numQuestions }) {
                             ${index === question.correctOption ? "correct" : "wrong"}
                         `}
                             key={option}
-                            disabled={answer !== null}
                             onClick={() => dispatch({ type: 'newAnswer', payload: index })}>
                             {option}
                         </button>
@@ -35,7 +34,6 @@ function Question({ question, dispatch, answer, index, numQuestions }) {
                             ${index === question.correctOption ? "correct" : "wrong"}
                         `}
                             key={option}
-                            disabled={answer !== null}
                             onClick={() => dispatch({ type: 'newAnswer', payload: index })}>
                             {option}
                         </button>
