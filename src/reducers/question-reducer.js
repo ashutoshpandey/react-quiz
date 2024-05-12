@@ -1,4 +1,4 @@
-export const initialState = {
+export const initialQuestionState = {
     index: 0,
     questions: [],
     status: 'loading',  // loading, error, finished, ready, active
@@ -6,7 +6,7 @@ export const initialState = {
     points: 0
 };
 
-export function reducer(state, action) {
+export function questionReducer(state, action) {
     switch (action.type) {
         case 'dataReceived':
             return {

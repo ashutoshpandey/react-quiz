@@ -8,18 +8,17 @@ import Loader from './components/Loader';
 import Question from './components/Question';
 import StartScreen from './components/StartScreen';
 
-import { reducer, initialState } from './reducers/question-reducer';
+import { fetchQuestions } from './services/question-serv';
+import { questionReducer, initialQuestionState } from './reducers/question-reducer';
 
 function App() {
-  const [{ index, questions, status, answer }, dispatch] = useReducer(reducer, initialState);
+  const [{ index, questions, status, answer }, dispatch] = useReducer(questionReducer, initialQuestionState);
 
   const numQuestions = questions.length;
 
   useEffect(function () {
-    let url = 'http://localhost:9000/questions';
-
-    fetch(url)
-      .then((res) => res.json())
+    fetchQuestions()
+      .then((data) => data)
       .then((data) => dispatch({ type: 'dataReceived', payload: data }))
       .catch((err) => dispatch({ type: 'dataError' }));
   }, []);
