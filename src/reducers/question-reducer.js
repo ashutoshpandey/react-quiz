@@ -1,9 +1,8 @@
 export const initialQuestionState = {
     index: 0,
+    correct: 0,
     questions: [],
     status: 'loading',  // loading, error, finished, ready, active
-    answer: null,
-    points: 0
 };
 
 export function questionReducer(state, action) {
@@ -29,8 +28,14 @@ export function questionReducer(state, action) {
 
             return {
                 ...state,
-                answer: action.playload,
-                points: question.correctOption === action.payload ? state.points + question.points : state.points
+                correct: question.correctOption === action.payload ? state.correct + 1 : state.correct
+            };
+        case 'nextQuestion':
+            return { ...state, index: state.index + 1 };
+        case 'finish':
+            return {
+                ...state,
+                status: 'finished'
             };
         default:
             throw new Error('Unknown action');
